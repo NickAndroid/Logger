@@ -42,17 +42,17 @@ public class AudioModeListenerActivity extends AppCompatActivity {
                     public void run() {
 
                         while (audioManager.getMode() != AudioManager.MODE_NORMAL) {
-                            LoggerManager.getLogger(AudioModeListenerActivity.class).info("Waiting for mode：" + audioManager.getMode());
+                            LoggerManager.getLogger(AudioModeListenerActivity.class).info("Waiting for mode" + audioManager.getMode());
                             audioManager.setMode(AudioManager.MODE_NORMAL);
 
                             try {
                                 Thread.sleep(500);
                             } catch (InterruptedException e) {
-                                LoggerManager.getLogger(AudioModeListenerActivity.class).trace("Error when sleep:", e);
+                                LoggerManager.getLogger(AudioModeListenerActivity.class).trace("Error when sleep", e);
                             }
                         }
 
-                        LoggerManager.getLogger(AudioModeListenerActivity.class).info("Mode set to：" + audioManager.getMode());
+                        LoggerManager.getLogger(AudioModeListenerActivity.class).info("Mode set to" + audioManager.getMode());
                     }
                 });
             }
