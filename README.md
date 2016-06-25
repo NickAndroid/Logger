@@ -8,5 +8,5 @@ Android extended logger
 
 Gradle: 
 ```java
-compile 'dev.nick:app:0.1'
+compile 'dev.nick:logger:0.2'
 ```
