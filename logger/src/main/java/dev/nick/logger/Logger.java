@@ -20,9 +20,13 @@ public interface Logger {
 
     boolean isDebuggable(int level);
 
+    void setDebugLevel(int level);
+
     void funcEnter();
 
     void funcExit();
+
+    void verbose(Object o);
 
     void info(Object o);
 
