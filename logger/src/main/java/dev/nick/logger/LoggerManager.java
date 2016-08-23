@@ -26,6 +26,12 @@ public class LoggerManager {
     final static HashMap<String, Logger> sLoggers = new HashMap<>();
     final static AtomicInteger sDebugLevel = new AtomicInteger(Log.WARN);
 
+    static String tagPrefix;
+
+    public static void setTagPrefix(String tagPrefix) {
+        LoggerManager.tagPrefix = tagPrefix;
+    }
+
     public static int getDebugLevel() {
         return sDebugLevel.get();
     }
@@ -44,7 +50,7 @@ public class LoggerManager {
             Logger logger = new LoggerImpl(new LogTagBuilder() {
                 @Override
                 public String buildLogTag(String prop) {
-                    return prop;
+                    return tagPrefix == null ? prop : tagPrefix + "-" + prop;
                 }
             }, new CallingInfoBuilderImpl(), propName);
 
